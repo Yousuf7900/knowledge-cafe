@@ -1,6 +1,6 @@
+import { CiBookmark } from "react-icons/ci";
 
-
-const Blog = ({blog}) => {
+const Blog = ({blog, handleBookmarks}) => {
     const {cover_img, author_img, reading_time, posted_date, author_name, hashtags} = blog;
     return (
         <div className="mb-14">
@@ -13,8 +13,14 @@ const Blog = ({blog}) => {
                         <p>{posted_date}</p>
                     </div>
                 </div>
-                <div>
-                    <span>{reading_time} min read</span>
+                <div className="flex">
+                    <p >{reading_time} min read</p>
+                    <button 
+                        onClick={() => handleBookmarks(blog)}
+                        className="ml-2"
+
+                    ><CiBookmark></CiBookmark>
+                    </button>
                 </div>
             </div>
             <h1 className="font-bold text-4xl">{blog.title}</h1>
